@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
     return res.status(200).json({ status: true, message: 'Home API' })
 })
 
+app.use('/api/posts', require('./routes/postRoute'))
+
 const PORT = process.env.PORT || 3009
 
 app.listen(PORT, () => {

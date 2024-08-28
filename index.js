@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const logger = require('morgan')
 require('dotenv').config()
+require('./database/index')
 
 //middleware logger
 app.use(logger('dev'))

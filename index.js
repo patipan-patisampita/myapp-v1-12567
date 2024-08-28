@@ -8,9 +8,10 @@ app.use(logger('dev'))
 
 //parse application/x-www-form-urlencoded, 
 app.use(express.json())
-app.use(express.urlencoded({ extends: true }))
+app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
+    console.log(req.body)
     return res.status(200).json({ status: true, message: 'Home API' })
 })
 

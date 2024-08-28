@@ -1,15 +1,20 @@
 const express = require('express')
 const app = express()
 const logger = require('morgan')
+require('dotenv').config()
 
 //middleware logger
 app.use(logger('dev'))
+
+//parse application/x-www-form-urlencoded, 
+app.use(express.json())
+app.use(express.urlencoded({ extends: true }))
 
 app.get('/', (req, res) => {
     return res.status(200).json({ status: true, message: 'Home API' })
 })
 
-const PORT = 3000
+const PORT = process.env.PORT || 3009
 
 app.listen(PORT, () => {
     console.log(`SERVER running at http://localhost:${PORT}`)

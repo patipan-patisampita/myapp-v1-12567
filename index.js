@@ -1,5 +1,9 @@
 const express = require('express')
 const app = express()
+const logger = require('morgan')
+
+//middleware logger
+app.use(logger('dev'))
 
 app.get('/', (req, res) => {
     return res.status(200).json({ status: true, message: 'Home API' })
